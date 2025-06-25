@@ -1,0 +1,20 @@
+import {tgUsername} from "../../services/config.ts";
+import {ArticleBlock} from "../common/ArticleBlock.tsx";
+import volunteerPhoto from '../../assets/images/volunteer.png'
+
+export function VolunteerBlock() {
+    return (
+        <ArticleBlock
+            title={'Волонтёрство'}
+            text={'Если вы хотите сделать важное дело и поддержать тех, кто сталкивается с онкодиагнозом, присоединяйтесь к нашей команде волонтёров. Вместе мы создаём пространство заботы и силы. Ждём в команду волонтёров специалистов в области продвижения НКО, копирайтинга, smm-менеджмента, фандрайзинга и других сферах. Сотрудничаем со студентами и образовательными учреждениями.'}
+            photo={volunteerPhoto}
+            isReversed={true}
+            imgWidth={100}
+            buttonText={'Стать волонтёром'}
+            height={560}
+            buttonHandler={() => {
+                window.open(`https://t.me/${tgUsername}`);
+            }
+            }/>
+    );
+}

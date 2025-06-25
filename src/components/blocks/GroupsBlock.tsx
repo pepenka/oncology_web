@@ -1,0 +1,19 @@
+import {tgUsername} from "../../services/config.ts";
+import {ArticleBlock} from "../common/ArticleBlock.tsx";
+import groupsPhoto from '../../assets/images/groups.png'
+
+export function GroupsBlock() {
+    return (
+        <ArticleBlock
+            title={'Группы поддержки'}
+            text={'Группы поддержки — это пространство доверия и взаимопонимания, где люди, столкнувшиеся с онкологическим диагнозом или поддерживающие близких, могут поделиться своими переживаниями и найти поддержку. Это сообщество, помогающее справляться со страхами, чувством одиночества, бессилия и находить ресурсы для внутреннего равновесия и надежды. Встречи проходят на бесплатной основе в кабинетах доверия Челябинска и Миасса, а также онлайн, чтобы каждый мог выбрать удобный для себя формат.'}
+            photo={groupsPhoto}
+            isReversed={false}
+            height={640}
+            buttonText={'Присоединиться к группе поддержки'}
+            buttonHandler={() => {
+                window.open(`https://t.me/${tgUsername}`);
+            }
+            }/>
+    );
+}
