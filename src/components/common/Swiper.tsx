@@ -3,45 +3,53 @@ import {A11y, Navigation, Pagination, Scrollbar} from "swiper/modules";
 import {Banner, Event} from "../../services/types.ts";
 import {Swiper as SwiperReact, SwiperSlide} from "swiper/react";
 import {font} from "../../GlobalStyles.ts";
-import {redirectHandler} from "../../services/commonHandlers.ts";
+import {openInNewTab} from "../../services/commonHandlers.ts";
 
 const CustomSwiper = styled(SwiperReact)`
     height: max-content;
+    display: block;
     min-height: 640px;
 `;
 
-const Slide = styled(SwiperSlide)<{ img?: string }>`
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
+const Slide = styled(SwiperSlide)<{ isBanner?: boolean }>`
+    height: 600px;
     display: flex;
     align-items: center;
-    padding-bottom: 50px;
+
+    box-sizing: border-box;
+    ${props => props.isBanner
+            ? undefined
+            : 'padding: 0 4% 50px'};
+    
     gap: 10%;
     border-radius: 70px;
-    cursor: pointer;
+    background-color: rgba(0, 177, 197, 0.2);
+    justify-content: space-between;
 
-    background-image: url(${props => props.img ?? ''});
-    ${props => props.img
-            ? undefined
-            : 'background-color: rgba(0, 177, 197, 0.2);' +
-            'justify-content: space-between;'};
-    background-size: 100% auto;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+`;
+
+const BannerImg = styled.img`
+    width: 100%;
+    height: auto;
+    ${font(26, 38, 'Golos')};
+`;
+
+const SlideContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 30%;
 `;
 
 const SlideText = styled.h2<{ font: string }>`
-    width: 60%;
-    margin: 0 0 0 5%;
-
+    width: 100%;
     ${props => font(26, 38, props.font)};
 `;
 
 const SlideImg = styled.img`
     width: 500px;
     height: 500px;
-    margin-right: 5%;
+    margin-top: 4%;
     border-radius: 40px;
 `;
 
@@ -49,7 +57,6 @@ interface SwiperProps {
     slides: Banner[] | Event[];
     isEvents: boolean;
 }
-
 
 export function Swiper({slides, isEvents}: SwiperProps) {
     if (!isEvents) {
@@ -62,21 +69,16 @@ export function Swiper({slides, isEvents}: SwiperProps) {
                 pagination={{clickable: true}}
                 loop={true}>
                 {(slides as Banner[]).map((item: Banner, index: number) => (
-                    <Slide key={index} img={item.photoUrl}
+                    <Slide key={index}
+                           isBanner={true}
                            onClick={() => {
-                               if(item.redirectOnClickUrl) {
-                                   redirectHandler(item.redirectOnClickUrl);
+                               if (item.redirectOnClickUrl) {
+                                   openInNewTab(item.redirectOnClickUrl);
                                }
                            }}
+                           style={{cursor: 'pointer'}}
                     >
-                        <SlideText font={'Golos'}
-                                   style={{
-                                       backgroundColor: 'white',
-                                       padding: '20px',
-                                       borderRadius: '30px'
-                                   }}>
-                            {item.title}
-                        </SlideText>
+                        <BannerImg src={item.photoUrl} alt={item.title}/>
                     </Slide>
                 ))}
             </CustomSwiper>
@@ -91,11 +93,16 @@ export function Swiper({slides, isEvents}: SwiperProps) {
             navigation
             pagination={{clickable: true}}
             loop={true}>
-            {slides.map((item: Event, index: number) => (
+            {(slides as Event[]).map((item: Event, index: number) => (
                 <Slide key={index}>
-                    <SlideText font={'Raleway'}>
-                        {item.title}
-                    </SlideText>
+                    <SlideContent>
+                        <SlideText font={'Raleway'}>
+                            {item.title}
+                        </SlideText>
+                        <SlideText font={'Golos'}>
+                            {item.date}
+                        </SlideText>
+                    </SlideContent>
                     <SlideImg src={item.photoUrl} alt={'фото'}/>
                 </Slide>
             ))}

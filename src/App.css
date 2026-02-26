@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'Raleway';
-    src: url('assets/fonts/raleway/Raleway-Regular.ttf');
+    src: url('assets/fonts/raleway/OpenSans-Regular.ttf');
     font-weight: normal;
 }
 
@@ -35,6 +35,7 @@ a {
     color: inherit;
 }
 
+/*переопределение стилей swiper*/
 .swiper-button-prev {
     color: #574F4F;
 }
@@ -45,4 +46,47 @@ a {
 
 .swiper-pagination-bullet-active {
     background: #574F4F;
+}
+
+/*переопределение стилей gravity ui*/
+.g-text-input__label {
+    font-size: 15px !important;
+    line-height: normal;
+    font-family: 'Golos', serif !important;
+    text-align: justify !important;
+}
+
+.g-text-input__control {
+    font-size: 15px !important;
+    line-height: normal;
+    font-family: 'Raleway', serif !important;
+    text-align: justify !important;
+}
+
+.g-select-control__button {
+    font-size: 15px !important;
+    line-height: normal;
+    font-family: 'Golos', serif !important;
+    text-align: justify !important;
+}
+
+.g-checkbox_checked .g-checkbox__indicator::before, .g-checkbox_indeterminate .g-checkbox__indicator::before {
+    background-color: #47D072;
+}
+
+.g-flex {
+    align-self: center;
+}
+
+.g-alert__icon {
+    align-self: center;
+}
+
+.g-list__item_selected {
+    background-color: #47D072 !important;
+}
+
+.g-select-list__option_colored {
+    background-color: #47D072 !important;
+    color: white !important;
 }

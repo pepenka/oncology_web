@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {centerContent, font} from "../../GlobalStyles.ts";
+import {ActionButton} from "./ActionButton.tsx";
 
 const Article = styled.article`
     width: 100%;
@@ -25,23 +26,11 @@ const TextWrapper = styled.div`
     gap: 25px;
 `;
 
-const Button = styled.button`
-    background-color: #47D072;
-    border-radius: 20px;
-    color: white;
-    ${font(24, null, 'Raleway')};
-
-    &:hover {
-        transition: background-color 0.4s ease;
-        background-color: green;
-    }
-`;
-
 const Header = styled.h2`
     ${font(52, null, 'Golos')};
     justify-self: center;
     align-self: center;
-    height: max-content;
+    height: min-content;
 `;
 
 const Text = styled.p`
@@ -58,7 +47,6 @@ const ImageContainer = styled.div`
     background-color: rgba(0, 177, 197, 0.2);
     border-radius: 60px;
     width: 45%;
-    //height: 560px;
     ${centerContent()};
     align-items: end;
     overflow: hidden;
@@ -67,15 +55,15 @@ const ImageContainer = styled.div`
 interface ArticleProps {
     title: string;
     text: string;
+    headerForForm: string;
     photo: string;
     isReversed: boolean;
-    buttonHandler: () => void;
     buttonText: string;
     height: number;
     imgWidth?: number;
 }
 
-export function ArticleBlock({title, text, photo, isReversed, buttonHandler, buttonText, height, imgWidth}: ArticleProps) {
+export function ArticleBlock({title, text, headerForForm, photo, isReversed, buttonText, height, imgWidth}: ArticleProps) {
 
     if(isReversed) {
         return (
@@ -88,7 +76,7 @@ export function ArticleBlock({title, text, photo, isReversed, buttonHandler, but
                         <Header>{title}</Header>
                         <Text>{text}</Text>
                     </TextWrapper>
-                    <Button onClick={buttonHandler}>{buttonText}</Button>
+                    <ActionButton headerForForm={headerForForm} buttonText={buttonText} />
                 </ContentContainer>
             </Article>
         );
@@ -101,7 +89,7 @@ export function ArticleBlock({title, text, photo, isReversed, buttonHandler, but
                     <Header>{title}</Header>
                     <Text>{text}</Text>
                 </TextWrapper>
-               <Button onClick={buttonHandler}>{buttonText}</Button>
+               <ActionButton headerForForm={headerForForm} buttonText={buttonText} />
             </ContentContainer>
             <ImageContainer  style={{height: `${height}px`}}>
                 <Image src={photo} alt={'фото'}/>

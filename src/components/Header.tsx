@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import logo from '../assets/images/logo.png';
-import {centerContent, font} from "../GlobalStyles.ts";
+import {font} from "../GlobalStyles.ts";
+import {ActionButton} from "./common/ActionButton.tsx";
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -35,7 +36,6 @@ const RightSection = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    //width: 39%;
 `;
 
 const ButtonColumn = styled.div`
@@ -48,26 +48,11 @@ const ButtonColumn = styled.div`
 const NavLink = styled.a`
     color: black;
     ${font(20, null, 'Raleway')};
-    
+
     transition: color 0.3s;
+
     &:hover {
         color: #0066cc;
-    }
-`;
-
-const Button = styled.button`
-    background-color: #47D072;
-    color: white;
-    border-radius: 20px;
-    ${centerContent};
-    cursor: pointer;
-    ${font(18, null, 'Raleway')};
-    width: 100%;
-    height: 100%;
-
-    &:hover {
-        transition: background-color 0.4s ease;
-        background-color: green;
     }
 `;
 
@@ -92,12 +77,15 @@ export const Header = () => {
 
                 <ButtonColumn>
                     <NavLink href="#record">
-                        <Button>Нужна помощь</Button>
+                        <ActionButton fontSize={18}
+                                      isNeedOnClickHandler={false}
+                                      buttonText={'Мне нужна помощь'} />
                     </NavLink>
                     <NavLink href="#donation">
-                        <Button>
-                            <span style={{color: 'red', fontSize: '26px'}}>♥</span>&nbsp;&nbsp;Я хочу помочь
-                        </Button>
+                        <ActionButton fontSize={18}
+                                      isNeedOnClickHandler={false}
+                                      buttonText={'Я хочу помочь'}
+                                      child={<><span style={{color: 'red', fontSize: '18px'}}>♥</span>&nbsp;&nbsp;</>}/>
                     </NavLink>
                 </ButtonColumn>
             </RightSection>

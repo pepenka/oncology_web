@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {useState} from 'react';
 import {font} from "../../GlobalStyles.ts";
 import {MainSection} from "../../pages/mainPage.tsx";
+import {ActionButton} from "../common/ActionButton.tsx";
 
 const ReviewsContainer = styled.section`
     padding: 40px 20px;
@@ -19,13 +20,15 @@ const LeftColumn = styled.div`
     height: 500px;
     display: flex;
     flex-direction: column;
-    position: relative; /* Добавлено для позиционирования кнопки */
+    position: relative;
 `;
 
 const LeftColumnWrapper = styled.div`
     flex: 1;
     overflow-y: auto;
     padding-right: 15px;
+    
+    margin-bottom: 15px;
 `;
 
 const RightColumn = styled.div`
@@ -41,7 +44,6 @@ const ReviewList = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-bottom: 20px; /* Уменьшен отступ для кнопки */
 `;
 
 const ReviewCard = styled.div<{ isActive: boolean }>`
@@ -63,9 +65,6 @@ const ReviewHeader = styled.div`
 
 const ReviewPreview = styled.p`
     ${font(20, null, 'Raleway')};
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
     overflow: hidden;
 `;
 
@@ -80,23 +79,6 @@ const ExpandedReview = styled.div`
 
 const FullReviewText = styled.p`
     ${font(20, null, 'Raleway')};
-`;
-
-const AddReviewButton = styled.button`
-    ${font(20, null, 'Raleway')};
-    width: auto;
-    padding: 10px 20px;
-    background: #47D072;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    margin-top: 20px;
-    align-self: center;
-
-    &:hover {
-        transition: background-color 0.4s ease;
-        background-color: green;
-    }
 `;
 
 const ReviewField = styled.p`
@@ -188,7 +170,9 @@ export const ReviewsBlock = () => {
                             ))}
                         </ReviewList>
                     </LeftColumnWrapper>
-                    <AddReviewButton>Оставить отзыв</AddReviewButton>
+                    <ActionButton headerForForm={'Оставить отзыв'}
+                                  buttonText={'Оставить отзыв'}
+                                  formType={'review'} />
                 </LeftColumn>
 
                 <RightColumn>

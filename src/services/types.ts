@@ -1,4 +1,5 @@
 export type News = {
+    postUrl: string,
     text: string,
     photoUrl: string
 }
@@ -6,6 +7,7 @@ export type News = {
 export type Event = {
     title: string,
     photoUrl: string,
+    date: string
 }
 
 export type Banner = {
@@ -16,3 +18,21 @@ export type Banner = {
 }
 
 export type Data = Banner[] | News[] | Event[];
+
+export type ReviewData = {
+    name: string,
+    age: string,
+    status: string,
+    reviewText: string,
+}
+
+export type RecordData = {
+    name: string,
+    age: string,
+    email?: string,
+    phone?: string,
+    allowPhone: boolean,
+    allowEmail: boolean,
+    allowWhatsApp: boolean,
+    allowTelegram: boolean,
+}

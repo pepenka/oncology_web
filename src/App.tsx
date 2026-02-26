@@ -2,7 +2,6 @@ import {MainPage} from "./pages/mainPage.tsx";
 import styled from "styled-components";
 import {Header} from "./components/Header.tsx";
 import {Footer} from "./components/Footer.tsx";
-
 import 'swiper/swiper-bundle.css';
 import './App.css';
 

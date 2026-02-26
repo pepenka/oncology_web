@@ -1,4 +1,3 @@
-import {tgUsername} from "../../services/config.ts";
 import {ArticleBlock} from "../common/ArticleBlock.tsx";
 import volunteerPhoto from '../../assets/images/volunteer.png'
 
@@ -11,10 +10,8 @@ export function VolunteerBlock() {
             isReversed={true}
             imgWidth={100}
             buttonText={'Стать волонтёром'}
+            headerForForm={'Запись на волонтёрство'}
             height={560}
-            buttonHandler={() => {
-                window.open(`https://t.me/${tgUsername}`);
-            }
-            }/>
+            />
     );
 }

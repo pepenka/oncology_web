@@ -4,12 +4,13 @@ import {AboutUsBlock} from "../components/blocks/AboutUsBlock.tsx";
 import {RecordBlock} from "../components/blocks/RecordBlock.tsx";
 import {VolunteerBlock} from "../components/blocks/VolunteerBlock.tsx";
 import {GroupsBlock} from "../components/blocks/GroupsBlock.tsx";
-import {centerContent, font} from "../GlobalStyles.ts";
+import {font} from "../GlobalStyles.ts";
 import {DonationBlock} from "../components/blocks/DonationBlock.tsx";
 import {ContactsBlock} from "../components/blocks/ContactsBlock.tsx";
 import {BannersBlock} from "../components/blocks/BannersBlock.tsx";
 import {EventsBlock} from "../components/blocks/EventsBlock.tsx";
 import {NewsBlock} from "../components/blocks/NewsBlock.tsx";
+import {ModalWindow} from "../components/common/modalWindow/ModalWindow.tsx";
 
 const MainPageContainer = styled.main`
     display: flex;
@@ -30,8 +31,7 @@ export const MainSection = styled.section`
 export const MainArticle = styled.article`
     min-height: 400px;
     height: max-content;
-    
-    ${centerContent()};
+    display: block;
 `;
 
 export const ArticleHeader = styled.h2`
@@ -65,6 +65,8 @@ export function MainPage() {
             <DonationBlock />
             <ReviewsBlock />
             <ContactsBlock />
+
+            <ModalWindow />
         </MainPageContainer>
     )
 }

@@ -28,7 +28,16 @@ export const BannersBlock = (): ReactNode => {
                 photoUrl: 'https://sun9-43.userapi.com/impg/S4RbBD9d6LGgnKq0CoN0iebVRyUKfd6WKu1MpA/RBZJDO8bit4.jpg?size=1920x1080&quality=95&sign=16b3dd2117fbde6c2bb05808c705066c&type=album',
                 displayOrder: 0,
                 redirectOnClickUrl: 'https://vk.com/zhitdalshe74'
-            }
+            },
+        {
+            title: '80-летие Победы — хороший повод вспомнить историю семьи и страны. Показать фотографии своих фронтовиков детям и внукам. Рассказать о них и о том, какой ценой оплачен был мир, в котором мы родились.\n' +
+                '\n' +
+                'Дорогие друзья, желаем вам и вашим близким мира и здоровья!\n' +
+                'С праздником!',
+            photoUrl: '',
+            displayOrder: 4,
+            redirectOnClickUrl: 'https://vk.com/zhitdalshe74'
+        }
         ]);
 
     useEffect(() => {

@@ -1,4 +1,3 @@
-import {tgUsername} from "../../services/config.ts";
 import {ArticleBlock} from "../common/ArticleBlock.tsx";
 import groupsPhoto from '../../assets/images/groups.png'
 
@@ -11,9 +10,7 @@ export function GroupsBlock() {
             isReversed={false}
             height={640}
             buttonText={'Присоединиться к группе поддержки'}
-            buttonHandler={() => {
-                window.open(`https://t.me/${tgUsername}`);
-            }
-            }/>
+            headerForForm={'Запись в группы поддержки'}
+        />
     );
 }

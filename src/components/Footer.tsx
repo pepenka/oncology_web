@@ -5,6 +5,13 @@ import logo from '../assets/images/logo.png';
 import tg from '../assets/images/TGLogo.svg';
 import vk from '../assets/images/vk.svg';
 import youtube from '../assets/images/youtube.svg';
+import charter from '../assets/docs/charter.pdf';
+import state_reg from '../assets/docs/state_registration.pdf';
+import tax_reg from '../assets/docs/tax_registration.pdf';
+import offer from '../assets/docs/offer.pdf';
+import personal_data from '../assets/docs/personal_data.pdf';
+import donation_individual from '../assets/docs/donation_individual.pdf';
+import donation_legal from '../assets/docs/donation_legal_entity.pdf';
 import {rutubeRedirect, tgRedirect, vkRedirect} from "../services/commonHandlers.ts";
 
 const FooterContainer = styled.section`
@@ -20,12 +27,25 @@ const FooterContainer = styled.section`
 const FooterInfo = styled.p`
     ${font(20, null, 'Raleway')};
     height: max-content;
+    cursor: pointer;
+    width: max-content;
+
+    transition: color 0.3s;
+    &:hover {
+        color: #0066cc;
+    }
 `;
 
 const FooterLink = styled.p`
     ${font(20, null, 'Raleway')};
     height: max-content;
     cursor: pointer;
+    transition: all 0.15s ease;
+    
+    &:hover {
+        color: cornflowerblue;
+        cursor: pointer;
+    }
 `;
 
 const PolicyText = styled.p`
@@ -54,13 +74,14 @@ const LinksLogosContainer = styled.div`
     width: min-content;
     align-items: center;
     gap: 15px;
+    margin-top: 4px;
 `;
 
 const LinksTextContainer = styled.div`
     ${centerContent()};
     align-items: start;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     width: min-content;
 `;
 
@@ -111,14 +132,27 @@ export function Footer() {
 
             <Section>
                 <SectionTitle>Документы</SectionTitle>
-                <FooterInfo>Устав «Жить дальше»</FooterInfo>
-                <FooterInfo>Свидетельство о государственной регистрации</FooterInfo>
-                <FooterInfo>Свидетельство о постановке на учёт в налоговом органе</FooterInfo>
-                <FooterInfo>Договор оферты АНО «Жить дальше» 2025</FooterInfo>
-                <FooterInfo>Политика обработки персональных данных АНО «Жить дальше»</FooterInfo>
-                <FooterInfo>Договор пожертвования для физических лиц</FooterInfo>
-                <FooterInfo>Договор пожертвования для юридических лиц</FooterInfo>
-
+                <a href={charter} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Устав «Жить дальше»</FooterInfo>
+                </a>
+                <a href={state_reg} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Свидетельство о государственной регистрации</FooterInfo>
+                </a>
+                <a href={tax_reg} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Свидетельство о постановке на учёт в налоговом органе</FooterInfo>
+                </a>
+                <a href={offer} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Договор оферты АНО «Жить дальше» 2025</FooterInfo>
+                </a>
+                <a href={personal_data} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Политика обработки персональных данных АНО «Жить дальше»</FooterInfo>
+                </a>
+                <a href={donation_individual} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Договор пожертвования для физических лиц</FooterInfo>
+                </a>
+                <a href={donation_legal} target="_blank" rel="noopener noreferrer">
+                    <FooterInfo>Договор пожертвования для юридических лиц</FooterInfo>
+                </a>
                 <SectionTitle style={{marginTop: '15px'}}>Реквизиты</SectionTitle>
                 <FooterInfo>ИНН: 7448228314</FooterInfo>
                 <FooterInfo>КПП: 744801001</FooterInfo>

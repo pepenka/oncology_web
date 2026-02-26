@@ -1,4 +1,3 @@
-import {tgUsername} from "../../services/config.ts";
 import {ArticleBlock} from "../common/ArticleBlock.tsx";
 import recordPhoto from '../../assets/images/record.png'
 
@@ -11,10 +10,8 @@ export function RecordBlock() {
             photo={recordPhoto}
             isReversed={false}
             buttonText={'Записаться на консультацию'}
+            headerForForm={'Запись на консультацию'}
             height={555}
-            buttonHandler={() => {
-                window.open(`https://t.me/${tgUsername}`);
-            }
-            }/>
+        />
     );
 }
